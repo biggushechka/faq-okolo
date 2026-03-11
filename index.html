@@ -6,9 +6,11 @@
     <title>FAQ — ОКОЛО МАРКЕТ (B2B)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-        .faq-card:hover { border-color: #3b82f6; }
+        /* Стили для красивой анимации стрелочки */
+        details summary::-webkit-details-marker { display: none; }
+        details summary { list-style: none; outline: none; }
+        details[open] summary svg { transform: rotate(180deg); }
+        details summary svg { transition: transform 0.2s ease; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans antialiased">
@@ -18,80 +20,210 @@
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl mb-4">
                 ОКОЛО МАРКЕТ (B2B)
             </h1>
-            <p class="text-xl text-gray-600">База знаний и часто задаваемые вопросы для покупателей</p>
+            <p class="text-xl text-gray-600 font-medium">Справочный центр для покупателей и партнеров</p>
         </div>
 
-        <div class="space-y-6">
+        <div class="space-y-10">
 
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                <button class="w-full text-left p-6 focus:outline-none">
-                    <h2 class="text-2xl font-bold text-blue-700">Общие вопросы и формат работы</h2>
-                </button>
-                <div class="px-6 pb-6 space-y-4 border-t border-gray-50 pt-4 text-gray-700">
-                    <div>
-                        <p class="font-bold text-lg mb-1">Что представляет собой модель работы «ОКОЛО МАРКЕТ»?</p>
-                        <p>Мы работаем по системе регулярных продаж без содержания складских остатков. Поставщики приступают к производству только после получения заказа, что гарантирует максимальную свежесть продукции.</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-lg mb-1">Кто может стать покупателем на платформе?</p>
-                        <p>Система ориентирована на профессиональных участников рынка: несетевые магазины «у дома», вендинговых операторов и мелкооптовые компании.</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-lg mb-1">Регионы работы?</p>
-                        <p>Основная зона — Москва и МО (до 200 км от РЦ Домодедово). Краснодар находится в стадии проработки.</p>
-                    </div>
-                </div>
-            </div>
+            <section>
+                <h2 class="text-xl font-bold text-blue-800 mb-4 px-2 uppercase tracking-wider">Общие вопросы и формат работы</h2>
+                <div class="space-y-3">
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Что представляет собой модель работы «ОКОЛО МАРКЕТ»?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-50 pt-4">
+                            Мы работаем по системе регулярных продаж без содержания складских остатков. Поставщики приступают к производству или подготовке продукции только после получения конкретного заказа от покупателя. Это гарантирует максимальную свежесть продукции.
+                        </div>
+                    </details>
 
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                <button class="w-full text-left p-6 focus:outline-none">
-                    <h2 class="text-2xl font-bold text-blue-700">Заказы и ассортимент</h2>
-                </button>
-                <div class="px-6 pb-6 space-y-4 border-t border-gray-50 pt-4 text-gray-700">
-                    <div>
-                        <p class="font-bold text-lg mb-1">График приема заказов и доставки:</p>
-                        <ul class="list-disc ml-5 space-y-1">
-                            <li>Заказ в <strong>субботу</strong> (до 09:30) — доставка в <strong>понедельник</strong>.</li>
-                            <li>Заказ в <strong>понедельник</strong> (до 09:30) — доставка в <strong>среду</strong>.</li>
-                            <li>Заказ в <strong>среду</strong> (до 09:30) — доставка в <strong>пятницу</strong>.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="font-bold text-lg mb-1">Минимальный заказ:</p>
-                        <p>15 000 рублей с НДС. Отгрузка осуществляется строго кратно коробам согласно вложимости 1С.</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-lg mb-1">Отмена заказа:</p>
-                        <p>Возможна только до 12:00 в день подачи заказа.</p>
-                    </div>
-                </div>
-            </div>
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Кто может стать покупателем на платформе?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-50 pt-4">
+                            Система ориентирована на профессиональных участников рынка: несетевые магазины формата «у дома», операторов вендинговых сетей и мелкооптовые компании.
+                        </div>
+                    </details>
 
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                <button class="w-full text-left p-6 focus:outline-none">
-                    <h2 class="text-2xl font-bold text-blue-700">Финансы и договор</h2>
-                </button>
-                <div class="px-6 pb-6 space-y-4 border-t border-gray-50 pt-4 text-gray-700">
-                    <div>
-                        <p class="font-bold text-lg mb-1">Договор и ЭДО:</p>
-                        <p>Используется только типовая форма договора. Подписание происходит исключительно через системы ЭДО.</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-lg mb-1">Как получить отсрочку платежа?</p>
-                        <p>После проверки в БД Тензор. Стандартные условия: 8 рабочих дней, лимит 50 000 руб. При нарушении — автоматическая блокировка.</p>
-                    </div>
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            В каких регионах осуществляется работа?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-50 pt-4">
+                            На текущий момент основные операции сосредоточены в Москве и Московской области (в радиусе до 200 км от РЦ Домодедово). Регион Краснодар находится на стадии проработки.
+                        </div>
+                    </details>
                 </div>
-            </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-blue-800 mb-4 px-2 uppercase tracking-wider">Заказы и ассортимент</h2>
+                <div class="space-y-3">
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Каков график приема заказов и сроки доставки?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4">
+                            <p class="mb-2">Мы работаем по фиксированному графику «день в день»:</p>
+                            <ul class="list-disc ml-5 space-y-1">
+                                <li>Заказ в <strong>субботу</strong> (до 09:30) — доставка в <strong>понедельник</strong>.</li>
+                                <li>Заказ в <strong>понедельник</strong> (до 09:30) — доставка в <strong>среду</strong>.</li>
+                                <li>Заказ в <strong>среду</strong> (до 09:30) — доставка в <strong>пятницу</strong>.</li>
+                            </ul>
+                            <p class="mt-2 text-sm italic">Заявки, поданные после 09:30, переносятся на следующий цикл.</p>
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Какова минимальная сумма заказа?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4">
+                            Минимальный порог составляет 15 000 рублей с НДС. Отгрузка осуществляется строго кратно коробам в соответствии с вложимостью, зафиксированной в системе 1С. Поштучная отборка на текущем этапе не предусмотрена.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Существуют ли ограничения по ассортименту?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4">
+                            Да, в прайс-листах площадки полностью отсутствует продукция бренда «М-Кухня». Данные позиции не подлежат продаже через данный канал.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Можно ли отменить или изменить уже созданный заказ?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4 text-red-600 font-medium">
+                            Корректировка или отмена заказа возможны строго до 12:00 в день его подачи. После этого времени изменения не принимаются.
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-blue-800 mb-4 px-2 uppercase tracking-wider">Доставка и приемка товара</h2>
+                <div class="space-y-3">
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Каковы требования к точке доставки?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4">
+                            Покупатель обязан предоставить точный адрес с GPS-координатами, указать окно приемки (не менее 6 часов), сообщить об ограничениях по тоннажу и наличии пропускной системы.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Как происходит передача товара?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4">
+                            Сдача продукции осуществляется по количеству грузовых мест. В случае необоснованного отказа от заказа или невозможности сдачи по вине покупателя, предусмотрен штраф в размере 100% от стоимости продукции.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Необходимо ли участие в системе «Меркурий»?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4">
+                            Да, указание площадки в системе «Меркурий» для выставления ВСД является обязательным для продукции животного происхождения.
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-blue-800 mb-4 px-2 uppercase tracking-wider">Финансовые и договорные условия</h2>
+                <div class="space-y-3">
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Каким образом заключается договор?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4 font-medium">
+                            Используется типовая форма договора, которая не подлежит изменению. Подписание документов происходит исключительно через системы ЭДО.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Какие варианты оплаты доступны покупателям?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4">
+                            Доступны: полная предоплата, оплата по факту через QR-код и отсрочка платежа (после проверки).
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Как получить отсрочку платежа?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4">
+                            Необходима проверка благонадежности через БД «Тензор». Стандарт: 8 рабочих дней, лимит 50 000 руб. При нарушении — автоматическая блокировка.
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-orange-600 mb-4 px-2 uppercase tracking-wider">Распродажа (реализация возвратов)</h2>
+                <div class="space-y-3">
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800 italic text-gray-500">
+                            Существует ли возможность закупки со скидкой? (Временно не активно)
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4">
+                            Блок находится в проработке. После запуска в 12:00 будет формироваться отчет по возвратам вчерашнего дня со скидкой 20%. Минимальный заказ в этом случае составит 5 000 руб., возможны поштучные заказы.
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-blue-800 mb-4 px-2 uppercase tracking-wider">Техническое взаимодействие</h2>
+                <div class="space-y-3">
+                    <details class="group bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-lg text-gray-800">
+                            Через какие платформы ведется работа?
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-5 pb-5 text-gray-600 border-t border-gray-50 pt-4">
+                            Основной портал — Ecom (ОКОЛО, Toretail, «На полке»). Также поддерживается обмен данными через EDI.
+                        </div>
+                    </details>
+                </div>
+            </section>
 
         </div>
 
-        <div class="mt-16 bg-blue-50 rounded-2xl p-8 text-center border border-blue-100">
-            <h3 class="text-xl font-bold text-blue-900 mb-2">Остались вопросы?</h3>
-            <p class="text-blue-800 mb-4 text-lg">Свяжитесь с отделом операций FOOD MILES</p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="mailto:info@foodmiles.ru" class="text-blue-600 font-semibold hover:underline">info@foodmiles.ru</a>
-                <span class="hidden sm:inline text-blue-300">|</span>
-                <a href="https://t.me/Turbinss" target="_blank" class="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition">Написать в Telegram</a>
+        <div class="mt-16 bg-blue-900 rounded-2xl p-10 text-center text-white">
+            <h3 class="text-2xl font-bold mb-4">Остались вопросы?</h3>
+            <p class="text-blue-100 mb-8 text-lg">Свяжитесь с нами для оперативной поддержки</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="mailto:info@foodmiles.ru" class="flex items-center gap-2 hover:text-blue-200 transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    info@foodmiles.ru
+                </a>
+                <a href="https://t.me/Turbinss" target="_blank" class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition shadow-lg">
+                    Написать в Telegram
+                </a>
             </div>
         </div>
     </div>
